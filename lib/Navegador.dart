@@ -1,5 +1,6 @@
 import'package:flutter/material.dart';
 import 'vistas/calculadora.dart';
+import 'Contador.dart';
 
 class Navegador extends StatefulWidget{
     Navegador({super.key});
@@ -14,27 +15,31 @@ class _NavegadorState extends State<Navegador>{
     const Calculadora(
       titulo: "Calculadora",
     ),
-    Text(
-      "Soy el cuerpo 2",
-      style: TextStyle(fontSize: 40),
-    )];
+    const Contador(
+          title: "Contador",
+    ),
+    ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _indice = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context){
       return Scaffold(
         body: _cuerpo[_indice],
         bottomNavigationBar: BottomNavigationBar(
-          onTap: (value) =>{
-            _indice = value
-          },
           items: <BottomNavigationBarItem> [
             BottomNavigationBarItem(
                 icon: Icon(Icons.calculate),
                 label: "Calculadora"),
             BottomNavigationBarItem(
                 icon: Icon(Icons.accessible),
-                label: "Calculadora")
+                label: "Contador")
           ],
+          currentIndex: _indice,
+          onTap: _onItemTapped,
         ),
       );
     }
