@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Texto.dart';
 
@@ -24,14 +24,13 @@ class _HomeState extends State<Home> {
       ),
       body: Center(
          child: Consumer<MyModel>(
-          builder: (context, myModel, _) => Text(
+           builder: (context, myModel, _) => Text(
               'Bienvenido ${myModel.inputValue}',
-                  style: TextStyle(fontSize: 50),
+                   style: TextStyle(fontSize: 50),
           ),
         ),
       ),
     );
-    throw UnimplementedError();
   }
 
 }

@@ -21,14 +21,7 @@ class MyModel extends ChangeNotifier {
 }
 
 class _TextoState extends State<Texto>{
-  String _valorFinal = "";
-  String _inputValue = '';
 
-  void _agregaNumero(){
-    setState(() {
-      print(_inputValue);
-    });
-  }
   @override
   Widget build(BuildContext context) {
     final myModel = Provider.of<MyModel>(context);
@@ -56,7 +49,7 @@ class _TextoState extends State<Texto>{
                 ),
               ),
             ),
-            SizedBox(height: 20.0),
+            const SizedBox(height: 20.0),
             // Muestra el valor actual de la variable
             Text('Valor ingresado: ${myModel.inputValue}'),
              Padding(
@@ -65,9 +58,7 @@ class _TextoState extends State<Texto>{
                    style: ElevatedButton.styleFrom(
                      shadowColor: const Color.fromARGB(150, 195, 132, 118)
                    ),
-                   onPressed: () {
-                      _valorFinal = _inputValue;
-                   },
+                   onPressed: () {},
                    child: const Text( "Enviar"),
                  ),
             ),
