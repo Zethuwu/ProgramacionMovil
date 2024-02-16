@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider/provider.dart';
 
 class Texto extends StatefulWidget {
   const Texto({super.key, required this.titulo});
@@ -9,18 +9,29 @@ class Texto extends StatefulWidget {
   @override
   State<Texto> createState() => _TextoState();
 }
-class _TextoState extends State<Texto>{
+class MyModel extends ChangeNotifier {
+  String _inputValue = '';
 
-  String _trab="0";
+  String get inputValue => _inputValue;
+
+  void setInputValue(String value) {
+    _inputValue = value;
+    notifyListeners();
+  }
+}
+
+class _TextoState extends State<Texto>{
+  String _valorFinal = "";
+  String _inputValue = '';
 
   void _agregaNumero(){
     setState(() {
-      print(_trab);
+      print(_inputValue);
     });
   }
   @override
   Widget build(BuildContext context) {
-
+    final myModel = Provider.of<MyModel>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
@@ -33,6 +44,11 @@ class _TextoState extends State<Texto>{
             Padding(
               padding:  const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: TextFormField(
+                onChanged: (value){
+                  setState(() {
+                    myModel.setInputValue(value);
+                  });
+                },
                 decoration: const InputDecoration(
                     border: OutlineInputBorder(),
                     labelText: 'Enter your username',
@@ -40,6 +56,9 @@ class _TextoState extends State<Texto>{
                 ),
               ),
             ),
+            SizedBox(height: 20.0),
+            // Muestra el valor actual de la variable
+            Text('Valor ingresado: ${myModel.inputValue}'),
              Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
                  child: ElevatedButton(
@@ -47,12 +66,10 @@ class _TextoState extends State<Texto>{
                      shadowColor: const Color.fromARGB(150, 195, 132, 118)
                    ),
                    onPressed: () {
-                     _trab = toString();
-                     _agregaNumero();
+                      _valorFinal = _inputValue;
                    },
                    child: const Text( "Enviar"),
                  ),
-
             ),
           ],
         ),
