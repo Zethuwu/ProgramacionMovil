@@ -21,7 +21,7 @@ class MyModel extends ChangeNotifier {
 }
 
 class _TextoState extends State<Texto>{
-
+  String value = "";
   @override
   Widget build(BuildContext context) {
     final myModel = Provider.of<MyModel>(context);
@@ -58,7 +58,9 @@ class _TextoState extends State<Texto>{
                    style: ElevatedButton.styleFrom(
                      shadowColor: const Color.fromARGB(150, 195, 132, 118)
                    ),
-                   onPressed: () {},
+                   onPressed: () {
+                     value = "";
+                   },
                    child: const Text( "Enviar"),
                  ),
             ),

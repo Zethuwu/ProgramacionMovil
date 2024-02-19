@@ -1,3 +1,4 @@
+import 'package:curso/vistas/geo.dart';
 import'package:flutter/material.dart';
 import 'vistas/calculadora.dart';
 import 'Contador.dart';
@@ -17,7 +18,6 @@ class _NavegadorState extends State<Navegador>{
     const Home(
       titulo: "Home",
     ),
-
     const Contador(
           title: "Contador",
     ),
@@ -26,6 +26,10 @@ class _NavegadorState extends State<Navegador>{
     ),
     const Texto(
         titulo: "Texto",
+    ),
+    const Geo(
+       titulo: "GeoLocate",
+
     )
     ];
   void _onItemTapped(int index) {
@@ -54,6 +58,10 @@ class _NavegadorState extends State<Navegador>{
             BottomNavigationBarItem(
                 icon: Icon(Icons.abc),
                 label: "Texto"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.location_city),
+              label: "Geo",
+            )
           ],
           currentIndex: _indice,
           onTap: _onItemTapped,
