@@ -4,6 +4,8 @@ import 'vistas/calculadora.dart';
 import 'Contador.dart';
 import 'vistas/Home.dart';
 import 'vistas/Texto.dart';
+import 'vistas/CalendarScreen.dart';
+import 'firebase/EventService.dart';
 
 class Navegador extends StatefulWidget{
     Navegador({super.key});
@@ -12,7 +14,7 @@ class Navegador extends StatefulWidget{
 }
 
 class _NavegadorState extends State<Navegador>{
-
+  final EventService eventService = EventService();
   int _indice = 0;
   final _cuerpo=[
     const Home(
@@ -29,8 +31,10 @@ class _NavegadorState extends State<Navegador>{
     ),
     const Geo(
        titulo: "GeoLocate",
-
-    )
+    ),
+     const CalendarScreen(
+      title: "Calendario",
+    ),
     ];
   void _onItemTapped(int index) {
     setState(() {
@@ -61,6 +65,10 @@ class _NavegadorState extends State<Navegador>{
             BottomNavigationBarItem(
                 icon: Icon(Icons.location_city),
               label: "Geo",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.calendar_month),
+              label: "Calendario",
             )
           ],
           currentIndex: _indice,
