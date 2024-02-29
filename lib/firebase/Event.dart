@@ -7,15 +7,13 @@ class Event {
 
   Event({required this.id, required this.title, required this.date});
 
-  factory Event.fromSnapshot(DataSnapshot snapshot) {
-    final Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
-
-    if (data == null || !data.containsKey('title') || !data.containsKey('date')) {
-      throw   const FormatException("Missing title or date in event data");
+  factory Event.fromSnapshot(String id, Map<dynamic, dynamic> data) {
+    if (!data.containsKey('title') || !data.containsKey('date')) {
+      throw FormatException("Missing title or date in event data");
     }
 
     return Event(
-      id: snapshot.key!,
+      id: id,
       title: data['title'],
       date: DateTime.parse(data['date']),
     );

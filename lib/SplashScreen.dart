@@ -57,24 +57,24 @@ class SplashScreenImage extends StatelessWidget {
                   .size
                   .height,
               fit: BoxFit
-                  .cover, // Ajusta la imagen para cubrir todo el espacio disponible
+                  .cover, // Ajusta la imagen para cubrir todoss el espacio disponible
             ),
             // Logo
             Positioned(
               top: MediaQuery
                   .of(context)
                   .size
-                  .height / 2 - 50,
+                  .height / 2 - 125,
               // Ajusta la posición del logo verticalmente
               left: MediaQuery
                   .of(context)
                   .size
-                  .width / 2 - 50,
+                  .width / 2 - 125,
               // Ajusta la posición del logo horizontalmente
               child: Image.asset(
                 'lib/assets/Logo.png', // Ruta de la imagen del logo
-                width: 100, // Ancho del logo
-                height: 100, // Alto del logo
+                width: 250, // Ancho del logo
+                height: 250, // Alto del logo
               ),
             ),
           ],

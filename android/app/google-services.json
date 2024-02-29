@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "219416366711",
+    "project_id": "curso-c7d1a",
+    "storage_bucket": "curso-c7d1a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219416366711:android:f18d6563501161172c8072",
+        "android_client_info": {
+          "package_name": "com.fes_aragon.curso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDIZUaE8F3pNrehit__0hPZD0D_S4ojd5E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

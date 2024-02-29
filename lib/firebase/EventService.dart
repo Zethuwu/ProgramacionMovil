@@ -11,15 +11,28 @@ class EventService {
 
   // Obtener todos los eventos de Firebase
   Future<List<Event>> getEvents() async {
-    DataSnapshot snapshot = (await _eventsRef.once()) as DataSnapshot;
+    DatabaseEvent event = await _eventsRef.once();
+    DataSnapshot snapshot = event.snapshot;
     List<Event> events = [];
 
-    if (snapshot.value is Map<dynamic, dynamic>) {
-      (snapshot.value as Map<dynamic, dynamic>).forEach((key, value) {
-        events.add(Event.fromSnapshot(snapshot));
-      });
+    if (snapshot != null && snapshot.value != null) {
+      Map<dynamic, dynamic>? data = snapshot.value as Map<dynamic, dynamic>?;
+
+      if (data != null) {
+        data.forEach((key, value) {
+          if (value != null && value is Map<dynamic, dynamic>) {
+            Event event = Event(
+              id: key.toString(),
+              title: value['title'].toString(),
+              date: DateTime.parse(value['date'].toString()),
+            );
+            events.add(event);
+          }
+        });
+      }
     }
 
     return events;
   }
+
 }
