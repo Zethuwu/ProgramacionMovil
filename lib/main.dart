@@ -9,7 +9,7 @@ void main() async {
   // Inicializa Firebase con las opciones de configuración
   await Firebase.initializeApp(
     options: const FirebaseOptions(
-      apiKey: "",
+      apiKey: "AIzaSyDIZUaE8F3pNrehit__0hPZD0D_S4ojd5E",
       authDomain: "PUV3QW95piezUkRUhUb7EkQFElx2",
       databaseURL: "https://curso-c7d1a-default-rtdb.firebaseio.com/",
       projectId: "curso-c7d1a",

@@ -58,12 +58,23 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             manifestPlaceholders = [applicationName: "android.app.Application"]
             signingConfig signingConfigs.debug
+            shrinkResources false
+            minifyEnabled false
         }
         debug {
             manifestPlaceholders = [applicationName: "android.app.Application"]
         }
         build{
             manifestPlaceholders = [applicationName: "android.app.Application"]
+        }
+    }
+}
+configurations.all {
+    resolutionStrategy {
+        eachDependency {
+            if ((requested.group == "org.jetbrains.kotlin") && (requested.name.startsWith("kotlin-stdlib"))) {
+                useVersion("1.8.0")
+            }
         }
     }
 }
