@@ -1,3 +1,4 @@
+import 'package:curso/vistas/ProductScreen.dart';
 import 'package:curso/vistas/geo.dart';
 import'package:flutter/material.dart';
 import 'vistas/calculadora.dart';
@@ -35,6 +36,9 @@ class _NavegadorState extends State<Navegador>{
      const CalendarScreen(
       title: "Calendario",
     ),
+      ProductScreen(
+        //title: "Productos",
+      )
     ];
   void _onItemTapped(int index) {
     setState(() {
@@ -69,6 +73,10 @@ class _NavegadorState extends State<Navegador>{
             BottomNavigationBarItem(
               icon: Icon(Icons.calendar_month),
               label: "Calendario",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: "Prouctos",
             )
           ],
           currentIndex: _indice,
